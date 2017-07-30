@@ -105,28 +105,20 @@ pm.additionNUmber = function () {
 
     tableInputs.change(function () {
         var line = $(this).closest('.table');//contextualisation de chaque ligne
-        calculTotal(line);
+        calculTotal(line);//fonction calcul en fin de ligne
 
+        console.log($(this).val())// value input clicked
 
-        // var $table = $('table');
-        // var $tBody = $table.find('tbody');
-        // var $allTd = $tBody.find('.table td');
+        var colIndex = $(this).parent().index();
+        console.log(colIndex)//index
 
-        var td = $(this).parent().index();
-        console.log(td)
+        //value input same index
 
-        // selection de tt les célules du tableau qui ont le mm index
+        var allCellsOnTheColumn = $(this).closest('tbody').find('tr').find('>td:eq('+colIndex+')').index();
+        console.log(allCellsOnTheColumn)
 
-        var colIndex = td;
-        var allCellsOnTheColumn = $(this).closest('tbody').find('tr').find('>td:eq('+colIndex+')');
-        var allCellsWithoutThisOne = allCellsOnTheColumn.not(this);
-        console.log(toto);
-        
     });
 
-
-    //var recuperer le tableau complet table
-    //var recuperer le tableau complet tbody puis all td index
 
 };
 
