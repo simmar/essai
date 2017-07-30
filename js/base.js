@@ -109,16 +109,17 @@ pm.additionNUmber = function () {
 
         var colIndex = $(this).parent().index();
 
-        var CellsOnTheColumn = $(this).closest('tbody').find('tr').find('>td:eq()');
+        var CellsOnTheColumn = $(this).closest('tbody').find('tr').find('>td:eq('+colIndex+')');
         console.log(CellsOnTheColumn)
 
-        var resultCol = CellsOnTheColumn.find('tfoot').find('>td:eq('+colIndex+')');
+        var resultCol = $(this).closest('table').find('tfoot').find('tr').find('>td:eq('+colIndex+')');
         console.log(resultCol)
 
-//        CellsOnTheColumn.each(function() {
-//            var valueCol = ($(this).find('input').val() );
-//            console.log(valueCol)
-//        });
+        CellsOnTheColumn.each(function() {
+            var valueCol = ($(this).find('input').val() );
+            console.log(valueCol)
+
+        });
 
     });
 
