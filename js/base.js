@@ -107,15 +107,18 @@ pm.additionNUmber = function () {
         var line = $(this).closest('.table');//contextualisation de chaque ligne
         calculTotal(line);//fonction calcul en fin de ligne
 
-        console.log($(this).val())// value input clicked
-
         var colIndex = $(this).parent().index();
-        console.log(colIndex)//index
 
-        //value input same index
+        var CellsOnTheColumn = $(this).closest('tbody').find('tr').find('>td:eq()');
+        console.log(CellsOnTheColumn)
 
-        var allCellsOnTheColumn = $(this).closest('tbody').find('tr').find('>td:eq('+colIndex+')').index();
-        console.log(allCellsOnTheColumn)
+        var resultCol = CellsOnTheColumn.find('tfoot').find('>td:eq('+colIndex+')');
+        console.log(resultCol)
+
+//        CellsOnTheColumn.each(function() {
+//            var valueCol = ($(this).find('input').val() );
+//            console.log(valueCol)
+//        });
 
     });
 
